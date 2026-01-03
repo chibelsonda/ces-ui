@@ -5,6 +5,11 @@ export interface LoginRequest {
   password: string;
 }
 
+export interface SignRequest {
+  email: string;
+  password: string;
+}
+
 export interface AuthResponse {
   token: string;
   expiresAt: string;
@@ -12,6 +17,11 @@ export interface AuthResponse {
 
 export async function login(data: LoginRequest): Promise<AuthResponse> {
   const res = await api.post<AuthResponse>('/auth/login', data);
+  return res.data;
+}
+
+export async function signup(data: SignRequest): Promise<AuthResponse> {
+  const res = await api.post<AuthResponse>('/auth/signup', data);
   return res.data;
 }
 
