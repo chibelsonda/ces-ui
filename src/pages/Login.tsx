@@ -7,6 +7,7 @@ import {
   Divider,
   Anchor,
   Center,
+  Paper,
 } from '@mantine/core';
 
 import { useForm } from '@mantine/form';
@@ -46,54 +47,71 @@ export default function Login() {
   };
 
   return (
-    <Center mih="100vh">
-      <Container size="xs" w="100%">
-        <div id="login">
-          <form onSubmit={form.onSubmit(handleSubmit)}>
-            <Title ta="center" fw={400}>
-              Sign In
-            </Title>
+    <Center
+      mih="100vh"
+      style={{
+        backgroundColor: '#f5f7fb',
+      }}
+    >
+      <Container size="xs" w="90%">
+        <Center h="100vh">
+          <Paper
+            w={{ base: '100%', md: '90%' }}
+            p="xl"
+            radius="sm"
+            withBorder
+            shadow="sm"
+          >
+            <form onSubmit={form.onSubmit(handleSubmit)}>
+              <Title ta="center" fw={400}>
+                Sign In
+              </Title>
 
-            <TextInput label="Email" {...form.getInputProps('email')} mt="md" />
+              <TextInput
+                label="Email"
+                {...form.getInputProps('email')}
+                mt="md"
+              />
 
-            <PasswordInput
-              label="Password"
-              {...form.getInputProps('password')}
-              mt="md"
-            />
+              <PasswordInput
+                label="Password"
+                {...form.getInputProps('password')}
+                mt="md"
+              />
+
+              <Button
+                fullWidth
+                type="submit"
+                mt="xl"
+                loading={isPending}
+                disabled={isPending}
+              >
+                Login
+              </Button>
+
+              <Divider label="Or sign in with" labelPosition="center" my="lg" />
+            </form>
 
             <Button
               fullWidth
-              type="submit"
-              mt="xl"
-              loading={isPending}
-              disabled={isPending}
+              leftSection={<FcGoogle size={20} />}
+              variant="light"
+              mt="md"
             >
-              Login
+              Google
             </Button>
 
-            <Divider label="Or sign in with" labelPosition="center" my="lg" />
-          </form>
-
-          <Button
-            fullWidth
-            leftSection={<FcGoogle size={20} />}
-            variant="light"
-            mt="md"
-          >
-            Google
-          </Button>
-
-          <div style={{ marginTop: 16, textAlign: 'center' }}>
-            <Anchor size="sm" href="/forgot-password">
-              I forgot my password
-            </Anchor>
-            <br />
-            <Anchor size="sm" href="/signup">
-              I don't have an account
-            </Anchor>
-          </div>
-        </div>
+            <div style={{ marginTop: 16, textAlign: 'center' }}>
+              <Anchor size="sm" href="/forgot-password">
+                I forgot my password
+              </Anchor>
+              <br />
+              <Anchor size="sm" href="/signup">
+                I don't have an account
+              </Anchor>
+            </div>
+          </Paper>
+        </Center>
       </Container>
     </Center>
   );
