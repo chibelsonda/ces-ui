@@ -32,16 +32,6 @@ export default function App() {
           }
         />
 
-        <Route
-          path="/unauthorized"
-          element={
-            <div style={{ padding: '2rem', textAlign: 'center' }}>
-              <h1>Unauthorized</h1>
-              <p>You don't have permission to access this page.</p>
-            </div>
-          }
-        />
-
         <Route path="*" element={<Login />} />
       </Routes>
     </BrowserRouter>
