@@ -24,7 +24,7 @@ export default function Register() {
   const form = useForm<SignupFormValues>({
     initialValues: {
       email: 'chi@gmail.com',
-      password: 'Pass!234',
+      password: '',
     },
     validate: zodResolver(signupSchema),
   });
