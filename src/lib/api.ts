@@ -23,7 +23,6 @@ api.interceptors.response.use(
   },
   (error) => {
     console.log('response', error.response.data);
-    const status = error.response?.status;
     const message =
       error.response?.data?.message ||
       error.response?.data ||

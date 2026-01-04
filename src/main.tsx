@@ -24,12 +24,12 @@ const queryClient = new QueryClient({
 });
 
 createRoot(document.getElementById('root')!).render(
-  <QueryClientProvider client={queryClient}>
-    <StrictMode>
+  <StrictMode>
+    <QueryClientProvider client={queryClient}>
       <MantineProvider>
         <Notifications position="top-right" containerWidth={360} />
         <App />
       </MantineProvider>
-    </StrictMode>
-  </QueryClientProvider>
+    </QueryClientProvider>
+  </StrictMode>
 );

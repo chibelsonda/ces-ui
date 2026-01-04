@@ -90,7 +90,7 @@ export default function Register() {
               </Button>
 
               <Divider
-                label="Or create an account in with"
+                label="Or create an account with"
                 labelPosition="center"
                 my="lg"
               />
