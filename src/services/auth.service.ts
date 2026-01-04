@@ -5,7 +5,7 @@ export interface LoginRequest {
   password: string;
 }
 
-export interface SignRequest {
+export interface SignupRequest {
   email: string;
   password: string;
 }
@@ -20,7 +20,7 @@ export async function login(data: LoginRequest): Promise<AuthResponse> {
   return res.data;
 }
 
-export async function signup(data: SignRequest): Promise<AuthResponse> {
+export async function signup(data: SignupRequest): Promise<AuthResponse> {
   const res = await api.post<AuthResponse>('/auth/signup', data);
   return res.data;
 }
